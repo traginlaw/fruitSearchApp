@@ -85,16 +85,14 @@ const fruit = [
 
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
-const searchContainer = document.querySelector('.searchContainer');
+// const searchContainer = document.querySelector('.searchContainer');
 
 function search(str) {
 	let results = [];
 	console.log(str);
-	let myStr = str.value;
-	console.log(myStr);
 	if (str.length) {
-		results = fruit.filter((keyword) => {
-			keyword.toLowerCase().includes(str.toLowerCase());
+		results = fruit.filter((str) => {
+			fruit.includes(str.toLowerCase());
 		});
 		console.log(results);
 	}
@@ -105,15 +103,6 @@ function searchHandler(e) {
 	console.log(e.target.value);
 	let str = e.target.value;
 	search(str);
-	let results = [];
-	if (str.length) {
-		console.log(str);
-		str.toLowerCase();
-		results = fruit.filter((el) => {
-			return fruit.toString().includes(str);
-		});
-		return results;
-	}
 }
 
 function showSuggestions(results, inputVal) {}
@@ -123,6 +112,16 @@ function useSuggestion(e) {
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
+
+// let results = [];
+// if (str.length) {
+// 	console.log(str);
+// 	str.toLowerCase();
+// 	results = fruit.filter((el) => {
+// 		return fruit.toString().includes(el);
+// 	});
+// 	return results;
+// }
 
 // results = fruit.filter().includes(str);
 
