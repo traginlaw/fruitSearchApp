@@ -83,27 +83,60 @@ const fruit = [
 	'Yuzu',
 ];
 
-const searchInput = document.querySelector('#fruit');
+const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
 const searchContainer = document.querySelector('.searchContainer');
 
 function search(str) {
 	let results = [];
-	results = fruit.filter((fruit) => fruit.includes(str));
-
-	// results = fruit.filter().includes(str);
+	console.log(str);
+	let myStr = str.value;
+	console.log(myStr);
+	if (str.length) {
+		results = fruit.filter((keyword) => {
+			keyword.toLowerCase().includes(str.toLowerCase());
+		});
+		console.log(results);
+	}
 	return results;
 }
 
 function searchHandler(e) {
+	console.log(e.target.value);
 	let str = e.target.value;
-	console.log(str);
-	// console.log(str);
-	if (str) {
+	search(str);
+	let results = [];
+	if (str.length) {
+		console.log(str);
 		str.toLowerCase();
-		search(str);
+		results = fruit.filter((el) => {
+			return fruit.toString().includes(str);
+		});
+		return results;
 	}
 }
+
+function showSuggestions(results, inputVal) {}
+function useSuggestion(e) {
+	// TODO
+}
+
+input.addEventListener('keyup', searchHandler);
+suggestions.addEventListener('click', useSuggestion);
+
+// results = fruit.filter().includes(str);
+
+// results.includes(inputVal.toLowerCase());
+// search();
+// let results = [];
+// let inputVal = searchContainer.value;
+// if (inputVal.length) {
+// 	fruit.filter((inputVal) => {
+// 		return inputVal.toLowerCase().includes(inputVal.toLowerCase());
+// 	});
+// 	console.log(results);
+// 	return results;
+// }
 
 // 		results = fruit.filter(function (value) {
 // 			fruit.includes(value);
@@ -148,26 +181,13 @@ function searchHandler(e) {
 
 //search handler should
 
-function showSuggestions(results, inputVal) {
-	results = fruit.filter().toLowerCase().includes(inputVal);
-	return results;
+// console.log(str);
 
-	// results.includes(inputVal.toLowerCase());
-	// search();
-	// let results = [];
-	// let inputVal = searchContainer.value;
-	// if (inputVal.length) {
-	// 	fruit.filter((inputVal) => {
-	// 		return inputVal.toLowerCase().includes(inputVal.toLowerCase());
-	// 	});
-	// 	console.log(results);
-	// 	return results;
-	// }
-}
-
-function useSuggestion(e) {
-	// TODO
-}
-
-searchInput.addEventListener('keyup', searchHandler);
-suggestions.addEventListener('click', useSuggestion);
+// console.log(e);
+// console.log(fruit.toString().includes('ap'));
+// const newStr = fruit.toString();
+// console.log(newStr);
+// const search = fruit.filter(() => {
+// 	fruit.includes('ap');
+// 	console.log(search);
+// 	return search;
