@@ -87,28 +87,73 @@ const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
 // const searchContainer = document.querySelector('.searchContainer');
 
-function search(str) {
-	let results = [];
-	console.log(str);
-	if (str.length) {
-		results = fruit.filter((str) => {
-			fruit.includes(str.toLowerCase());
+function removeVowels(str) {
+	const vowels = 'aeiou';
+	return str
+		.toLowerCase()
+		.split('')
+		.filter(function (val) {
+			return vowels.indexOf(val) === -1;
 		});
-		console.log(results);
-	}
-	return results;
+	// .join('');
 }
 
+function search(str) {
+	let results = [];
+
+	if (str.length > -1) {
+		results = fruit.filter((inputVal) =>
+			inputVal.toLowerCase().includes(str.toLowerCase())
+		);
+		console.log(results);
+	}
+	// showSuggestions(results, inputVal);
+	// results.classList.add('suggestions ul');
+
+	//console.log(classList);
+	// //showSuggestions();
+}
+
+// 	return fruit.filter((val) => {
+// 		return (results = fruit.includes(val.toLowerCase()));
+// 	});
+
+// for Each char of str) {
+// let newL = document.createElement('li')
+
+// console.log(results);
+// return results;
+
 function searchHandler(e) {
-	console.log(e.target.value);
+	console.log(e);
 	let str = e.target.value;
+	//console.log(str);
 	search(str);
+	// let results = [];
+	// let input = e.target.value;
+	// fruit.forEach(
+	// 	(results = fruit.filter((input) => {
+	// 		return fruit.includes(input.toLowerCase());
+	// 	}))
+	// );
 }
 
 function showSuggestions(results, inputVal) {}
-function useSuggestion(e) {
-	// TODO
-}
+
+// if (search() && searchHandler()) {
+// 	console.log(results);
+// }
+// console.log(inputVal);
+// if (inputVal.length > -1) {
+// 	results = search().value;
+// 	for (let i = 0; i > results.length; i++) {
+// 		console.log(results);
+
+// 	}
+// }
+// console.log(results);
+
+function useSuggestion(e) {}
 
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);

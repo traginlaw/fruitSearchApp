@@ -10,6 +10,10 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   background-color: orange;
   color: black;
   
@@ -26,17 +30,26 @@ input {
 }
 
 .search-container {
- width: 600px;
- background: #fff;
- margin: 200px auto 0;
- border-radius: 5px;
+  position: relative;
+  width: 400px;
+  background: #fff;
+  margin: 200px auto 0;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 0 5px; 
 }
 .search-container input,
 .search-container .suggestions {
-  /* TODO */
+  position: absolute;
 }
 .search-container input {
- /* TODO */
+  position: relative;
+  width: 300px;
+  height: 60px;
+  left: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .search-container .suggestions {
    /* TODO probably to make sure the  */
