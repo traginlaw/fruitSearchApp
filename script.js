@@ -105,8 +105,10 @@ function search(str) {
 		results = fruit.filter((inputVal) =>
 			inputVal.toLowerCase().includes(str.toLowerCase())
 		);
-		console.log(results);
+		// results.classList.add('suggestions');
 	}
+	showSuggestions(results, str);
+
 	// showSuggestions(results, inputVal);
 	// results.classList.add('suggestions ul');
 
@@ -125,10 +127,10 @@ function search(str) {
 // return results;
 
 function searchHandler(e) {
-	console.log(e);
 	let str = e.target.value;
-	//console.log(str);
 	search(str);
+	// showSuggestions(search(str));
+
 	// let results = [];
 	// let input = e.target.value;
 	// fruit.forEach(
@@ -138,7 +140,23 @@ function searchHandler(e) {
 	// );
 }
 
-function showSuggestions(results, inputVal) {}
+function showSuggestions(results, inputVal) {
+	suggestions.innerHTML = results.map((i) => `<li>${i}</li>`).join('');
+}
+// const text = results.map((list) => {
+// 	return `<li> ${list} </li>`;
+// });
+// suggestions.innerHTML = `<`;
+
+// let li = document.createElement('li');
+
+// li.innerHTML =
+// newL = document.getElementsByTagName('ul');
+// newL.innerHTML = results
+// 	.map((list) => {
+// 		return newL.appendChild(`<li>${search(results)} </li>`);
+// 	})
+// 	.join('');
 
 // if (search() && searchHandler()) {
 // 	console.log(results);
